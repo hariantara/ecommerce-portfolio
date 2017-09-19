@@ -27,6 +27,7 @@
           <div class="">
             <Login></Login>
             <Registers></Registers>
+            <Cart></Cart>
           </div>
           <!--  -->
         </div>
@@ -40,6 +41,7 @@
 </template>
 
 <script>
+import Cart from '@/components/Cart'
 import Registers from '@/components/Registers'
 import Login from '@/components/Login'
 import Boxes from '@/components/Boxes'
@@ -51,7 +53,8 @@ export default {
     Footer,
     Boxes,
     Login,
-    Registers
+    Registers,
+    Cart
   }
 }
 </script>

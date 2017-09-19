@@ -35,6 +35,7 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" data-toggle="modal" data-target="#cart">Cart</a></li>
         <li><a href="#" data-toggle="modal" data-target="#tes">Register</a></li>
         <li><a href="#" data-toggle="modal" data-target="#myModal">Login</a></li>
       </ul>

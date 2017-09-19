@@ -11,10 +11,10 @@
           <h4 class="modal-title">Register</h4>
         </div>
         <div class="modal-body">
-          <form method="post" action='' name="login_form">
-              <p><input type="text" class="span3" name="eid" id="email" placeholder="Email"></p>
-              <p><input type="password" class="span3" name="passwd" placeholder="Password"></p>
-              <p><button type="submit" class="btn btn-primary">Sign up</button></p>
+          <form>
+              <p><input type="text" v-model='signup.username' class="span3" name="eid" id="email" placeholder="Username"></p>
+              <p><input type="password" v-model='signup.password' class="span3" name="passwd" placeholder="Password"></p>
+              <p><button type="submit" @click='signupForm()' class="btn btn-primary">Sign up</button></p>
             </form>
         </div>
         <div class="modal-footer">
@@ -29,7 +29,24 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
+  data () {
+    return {
+      signup: {
+        username: '',
+        password: ''
+      }
+    }
+  },
+  methods: {
+    ...mapActions([
+      'isSignup'
+    ]),
+    signupForm () {
+      this.isSignup(this.signup)
+    }
+  }
 }
 </script>
 

@@ -11,10 +11,10 @@
           <h4 class="modal-title">Login</h4>
         </div>
         <div class="modal-body">
-          <form method="post" action='' name="login_form">
-              <p><input type="text" class="span3" name="eid" id="email" placeholder="Email"></p>
-              <p><input type="password" class="span3" name="passwd" placeholder="Password"></p>
-              <p><button type="submit" class="btn btn-primary">Sign in</button>
+          <form @click.prevent>
+              <p><input type="text" v-model='signin.username' class="span3" name="eid" id="email" placeholder="Username"></p>
+              <p><input type="password" v-model='signin.password' class="span3" name="passwd" placeholder="Password"></p>
+              <p><button type="submit" @click='signinForm()' class="btn btn-primary">Sign in</button>
                 <a href="#">Forgot Password?</a>
               </p>
             </form>
@@ -31,7 +31,25 @@
 </template>
 
 <script>
-export default {}
+import { mapActions } from 'vuex'
+export default {
+  data () {
+    return {
+      signin: {
+        username: '',
+        password: ''
+      }
+    }
+  },
+  methods: {
+    ...mapActions([
+      'isLogin'
+    ]),
+    signinForm () {
+      this.isLogin(this.signin)
+    }
+  }
+}
 </script>
 
 </style>
