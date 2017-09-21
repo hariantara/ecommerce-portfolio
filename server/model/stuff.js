@@ -4,6 +4,10 @@ mongoose.connect('mongodb://localhost/blacksmith');
 var Schema = mongoose.Schema;
 
 var StuffSchema = new Schema({
+  userdata: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  },
   name: String,
   description: String,
   category: String,

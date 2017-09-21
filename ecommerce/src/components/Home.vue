@@ -35,7 +35,7 @@
     </div>
     <!--  -->
     <div class="">
-      <Footer></Footer>
+      <Footers></Footers>
     </div>
   </div>
 </template>
@@ -46,11 +46,11 @@ import Registers from '@/components/Registers'
 import Login from '@/components/Login'
 import Boxes from '@/components/Boxes'
 import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import Footers from '@/components/Footer'
 export default {
   components: {
     Navbar,
-    Footer,
+    Footers,
     Boxes,
     Login,
     Registers,

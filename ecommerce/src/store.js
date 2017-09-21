@@ -8,7 +8,8 @@ vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     signupState: [],
-    signinState: []
+    signinState: [],
+    stuff: []
   },
   mutations: {
     setSignupData (state, payload) {
@@ -16,6 +17,9 @@ export default new Vuex.Store({
     },
     setSigninData (state, payload) {
       state.signinState = payload
+    },
+    showList (state, payload) {
+      state.stuff = payload
     }
   },
   actions: {
@@ -43,6 +47,12 @@ export default new Vuex.Store({
         store.commit('setSigninData', signinData.data)
         alert(`login success, let's shop now !!!`)
         router.push('/')
+      })
+    },
+    loadList (store, payload) {
+      axios.get('http://localhost:3000/stuffs/read')
+      .then((stuffs) => {
+        store.commit('showList', stuffs.data)
       })
     }
   }
