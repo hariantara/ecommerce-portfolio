@@ -9,6 +9,7 @@ var StuffSchema = new Schema({
     ref: 'User'
   },
   name: String,
+  image: String,
   description: String,
   category: String,
   stock: Number,

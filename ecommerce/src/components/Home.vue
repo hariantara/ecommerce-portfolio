@@ -19,8 +19,10 @@
           </div>
           <!--  -->
           <div class="container">
-            <div class="col-md-9">
-              <Boxes></Boxes>
+            <div class="row">
+              <div class="col-md-9">
+                <Boxes></Boxes>
+              </div>
             </div>
           </div>
           <!--  -->

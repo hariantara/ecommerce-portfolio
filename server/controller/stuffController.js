@@ -3,6 +3,7 @@ var modelStuff = require('../model/stuff')
 var addStuff = (req, res) => {
   modelStuff.create({
     name: req.body.name,
+    image: req.body.image,
     description: req.body.description,
     category: req.body.category,
     stock: req.body.stock,
@@ -33,6 +34,7 @@ var editStuff = (req, res) => {
     _id: req.params.id
   },{
     name: req.body.name,
+    image: req.body.image,
     description: req.body.description,
     category: req.body.category,
     stock: req.body.stock,
