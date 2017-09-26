@@ -9,7 +9,8 @@ export default new Vuex.Store({
   state: {
     signupState: [],
     signinState: [],
-    stuff: []
+    stuff: [],
+    carts: []
   },
   mutations: {
     setSignupData (state, payload) {
@@ -20,6 +21,9 @@ export default new Vuex.Store({
     },
     showList (state, payload) {
       state.stuff = payload
+    },
+    addToCart (state, payload) {
+      state.carts = payload
     }
   },
   actions: {
