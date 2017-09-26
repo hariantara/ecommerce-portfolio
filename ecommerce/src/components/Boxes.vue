@@ -21,7 +21,7 @@
 
               <div class="productprice">
                 <div class="pull-right">
-                  <button class="btn btn-danger btn-sm" role="button" @click='add(data)'>Add to Cart</button>
+                  <button class="btn btn-danger btn-sm" role="button" @click='addToCart(data)'>Add to Cart</button>
                 </div>
               <div class="pricetext">Rp. {{ data.price }}</div>
             </div>
@@ -39,34 +39,13 @@ export default {
   components: {
     // Buttons
   },
-  data () {
-    return {
-      cart: []
-      // button: null
-    }
-  },
   methods: {
     ...mapActions([
       'loadList'
     ]),
     ...mapMutations([
       'addToCart'
-    ]),
-    add (data) {
-      var status = true
-      for (var i = 0; i < this.cart.length; i++) {
-        console.log('masuk')
-        if (this.cart[i]._id === data._id) {
-          status = false
-          alert('barang udah ada')
-        }
-      }
-      if (status === true) {
-        this.cart.push(data)
-        this.addToCart(this.cart)
-        alert('barang telah di tambah')
-      }
-    }
+    ])
     // addToCart (id, name, image, category, price) {
     //   console.log('masuk test')
     //   console.log(this.cart.length)

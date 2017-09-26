@@ -23,7 +23,29 @@ export default new Vuex.Store({
       state.stuff = payload
     },
     addToCart (state, payload) {
-      state.carts = payload
+      var status = true
+      for (var i = 0; i < state.carts.length; i++) {
+        console.log('masuk')
+        if (state.carts[i]._id === payload._id) {
+          status = false
+          alert('barang udah ada')
+        }
+      }
+      if (status === true) {
+        state.carts.push(payload)
+        alert('barang telah di tambah')
+      }
+    },
+    changeQuantity (state, payload) {
+      const idx = state.carts.findIndex(function (cartProduct) {
+        return cartProduct._id === payload.item._id
+      })
+      if (idx === -1) {
+        state.carts.push(payload.item)
+      } else {
+        state.carts[idx] = payload
+      }
+      console.log(payload)
     }
   },
   actions: {

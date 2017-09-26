@@ -36,10 +36,10 @@
                             </div>
                         </div></td>
                         <td class="col-sm-1 col-md-1" style="text-align: center">
-                        <input type="email" class="form-control" id="exampleInputEmail1" v-model="checkout.quantity">
+                        <input type="number" class="form-control" v-model="data.quantity" @keyup="changeQty(data)">
                         </td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>{{ data.price }}</strong></td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong>$14.61</strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong></strong></td>
                         <td class="col-sm-1 col-md-1">
                         <button type="button" class="btn btn-danger">
                             <span class="glyphicon glyphicon-remove"></span> Remove
@@ -102,26 +102,26 @@ export default {
   data () {
     return {
       checkout: {
-        id: '',
-        name: '',
-        image: '',
-        stock: null,
-        price: null,
         quantity: null
       }
     }
   },
   methods: {
     ...mapMutations([
-      'addToCart'
-    ])
-  },
-  mounted () {
-    this.addToCart()
+      'changeQuantity'
+    ]),
+    changeQty (data) {
+      this.changeQuantity(data)
+    }
   },
   computed: {
     cartlist () {
       return this.$store.state.carts
+    }
+  },
+  watch: {
+    data () {
+      this.addQuantity(this.$store.state.carts)
     }
   }
 }
