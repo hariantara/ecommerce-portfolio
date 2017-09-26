@@ -38,12 +38,12 @@ export default new Vuex.Store({
     },
     changeQuantity (state, payload) {
       const idx = state.carts.findIndex(function (cartProduct) {
-        return cartProduct._id === payload.item._id
+        return cartProduct._id === payload._id
       })
       if (idx === -1) {
-        state.carts.push(payload.item)
+        state.carts.push(payload)
       } else {
-        state.carts[idx] = payload
+        state.carts[idx].quantity = payload.quantity
       }
       console.log(payload)
     }

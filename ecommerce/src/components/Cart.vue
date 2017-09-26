@@ -111,6 +111,7 @@ export default {
       'changeQuantity'
     ]),
     changeQty (data) {
+      console.log('===>', data)
       this.changeQuantity(data)
     }
   },
@@ -121,7 +122,7 @@ export default {
   },
   watch: {
     data () {
-      this.addQuantity(this.$store.state.carts)
+      this.changeQty(this.$store.state.carts)
     }
   }
 }
