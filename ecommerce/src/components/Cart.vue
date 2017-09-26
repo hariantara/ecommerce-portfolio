@@ -117,6 +117,7 @@ export default {
   },
   computed: {
     cartlist () {
+      console.log(this.$store.state.carts)
       return this.$store.state.carts
     }
   },

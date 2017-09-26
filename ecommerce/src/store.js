@@ -32,21 +32,26 @@ export default new Vuex.Store({
         }
       }
       if (status === true) {
+        payload.quantity = 1
+        payload.total = payload.price
         state.carts.push(payload)
         alert('barang telah di tambah')
       }
     },
     changeQuantity (state, payload) {
+      console.log('sebelum ada total ', payload)
+      payload.total = parseInt(payload.quantity) * parseInt(payload.price)
+      console.log('setelah ada total ', payload)
+
       const idx = state.carts.findIndex(function (cartProduct) {
         return cartProduct._id === payload._id
       })
       if (idx === -1) {
         state.carts.push(payload)
       } else {
-        state.carts[idx].quantity = payload.quantity
-        state.carts[idx].total = parseInt(payload.quantity) * parseInt(payload.price)
+        console.log('di else nya ', payload)
+        state.carts[idx] = payload
       }
-      console.log(payload)
     }
   },
   actions: {
