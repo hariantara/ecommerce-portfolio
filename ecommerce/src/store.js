@@ -44,6 +44,7 @@ export default new Vuex.Store({
         state.carts.push(payload)
       } else {
         state.carts[idx].quantity = payload.quantity
+        state.carts[idx].total = parseInt(payload.quantity) * parseInt(payload.price)
       }
       console.log(payload)
     }

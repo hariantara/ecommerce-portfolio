@@ -39,7 +39,7 @@
                         <input type="number" class="form-control" v-model="data.quantity" @keyup="changeQty(data)">
                         </td>
                         <td class="col-sm-1 col-md-1 text-center"><strong>{{ data.price }}</strong></td>
-                        <td class="col-sm-1 col-md-1 text-center"><strong></strong></td>
+                        <td class="col-sm-1 col-md-1 text-center"><strong>{{ data.total }}</strong></td>
                         <td class="col-sm-1 col-md-1">
                         <button type="button" class="btn btn-danger">
                             <span class="glyphicon glyphicon-remove"></span> Remove
@@ -123,6 +123,9 @@ export default {
   watch: {
     data () {
       this.changeQty(this.$store.state.carts)
+    },
+    changeTotal () {
+      this.cartlist()
     }
   }
 }
